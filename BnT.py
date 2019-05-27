@@ -22,7 +22,7 @@ def Set(n,c=None):
     for x in Snakes:
         Alg(x,'r*')
     for x in n:
-        Alg(sum(Players[x]),'bo')
+        a[x],=Alg(sum(Players[x]),'bo')
     plt.savefig(os.getcwd()+'\\image_'+str(c)+'.png')
     for x in n:
         a[x].remove()
