@@ -3,6 +3,7 @@ import os
 def Builder(level,players):
     a=open('SnL.py','w+')
     a.write('''import random as r
+import os
 import Send as s
 import time as t
 import matplotlib.pyplot as plt
@@ -22,7 +23,7 @@ def Set(n,c=None):
         Alg(x,'r*')
     for x in n:
         Alg(sum(Players[x]),'bo')
-    plt.savefig('C:\\\\Users\\\\Bamgm14\\\\Desktop\\\\Garbage\\\\Bike\\\\image_'+str(c)+'.png')
+    plt.savefig('os.getcwd()+'\\image_'+str(c)+'.png')
     for x in n:
         a[x].remove()
 def Alg(n,a):
@@ -68,7 +69,7 @@ def Loop(textbox=None,driver=None):
             if flag==1:
                 break
         Set(Players,count)
-        s.send(driver,'C:\\\\Users\\\\Bamgm14\\\\Desktop\\\\Garbage\\\\Bike\\\\image_'+str(count)+'.png')
+        s.send(driver,'os.getcwd()+'\\image_'+str(count)+'.png')
         t.sleep(10)
         if flag==1:
             break\n''')
@@ -86,3 +87,5 @@ def Loop(textbox=None,driver=None):
         a.write('"'+x+'":[],')
     a.write('}\n')
     a.close()
+
+
