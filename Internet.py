@@ -89,4 +89,4 @@ def yes(url):
         if "https://i.redd.it/" in x.get('href'):
             image.append(x.get('href'))
     os.system(r'wget -P '+os.getcwd()+'\PictureTemp '+str(image[0]))
-    return os.getcwd()+'PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]
+    return os.getcwd()+'\\PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]
