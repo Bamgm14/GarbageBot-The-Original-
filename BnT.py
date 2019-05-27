@@ -8,7 +8,7 @@ import Send as s
 import time as t
 import matplotlib.pyplot as plt
 import numpy as np
-def Set(n,c=None):
+def Set(n,c):
     global Ladders
     global Snakes
     global Players
@@ -23,13 +23,14 @@ def Set(n,c=None):
         Alg(x,'r*')
     for x in n:
         a[x],=Alg(sum(Players[x]),'bo')
-    plt.savefig(os.getcwd()+'\\image_'+str(c)+'.png')
+    plt.savefig(os.getcwd()+'\\Bike\\image_'+str(c)+'.png')
     for x in n:
         a[x].remove()
 def Alg(n,a):
     y=n//10
     x=n%10
-    plt.plot(x,y,a)
+    b=plt.plot(x,y,a)
+    return b
 def BikesAndTrucks(n,q):
     global Ladders
     global Snakes
@@ -69,7 +70,7 @@ def Loop(textbox=None,driver=None):
             if flag==1:
                 break
         Set(Players,count)
-        s.send(driver,os.getcwd()+'\\image_'+str(count)+'.png')
+        s.send(driver,os.getcwd()+'\\Bike\\image_'+str(count)+'.png')
         t.sleep(10)
         if flag==1:
             break\n''')
