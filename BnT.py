@@ -23,7 +23,7 @@ def Set(n,c=None):
         Alg(x,'r*')
     for x in n:
         Alg(sum(Players[x]),'bo')
-    plt.savefig('os.getcwd()+'\\image_'+str(c)+'.png')
+    plt.savefig(os.getcwd()+'\\image_'+str(c)+'.png')
     for x in n:
         a[x].remove()
 def Alg(n,a):
@@ -69,7 +69,7 @@ def Loop(textbox=None,driver=None):
             if flag==1:
                 break
         Set(Players,count)
-        s.send(driver,'os.getcwd()+'\\image_'+str(count)+'.png')
+        s.send(driver,os.getcwd()+'\\image_'+str(count)+'.png')
         t.sleep(10)
         if flag==1:
             break\n''')
@@ -87,5 +87,3 @@ def Loop(textbox=None,driver=None):
         a.write('"'+x+'":[],')
     a.write('}\n')
     a.close()
-
-
