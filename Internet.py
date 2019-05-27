@@ -88,5 +88,5 @@ def yes(url):
     for x in soup.find_all('a'):
         if "https://i.redd.it/" in x.get('href'):
             image.append(x.get('href'))
-    os.system(r'wget -P C:\Users\Bamgm14\Desktop\Garbage\PictureTemp '+str(image[0]))
-    return 'C:\\Users\\Bamgm14\\Desktop\\Garbage\\PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]
+    os.system(r'wget -P '+os.getcwd()+'\PictureTemp '+str(image[0]))
+    return os.getcwd()+'PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]
