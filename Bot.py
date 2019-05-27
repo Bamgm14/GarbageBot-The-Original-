@@ -89,10 +89,10 @@ while True:
                     response='One Minute\n'
                     textbox.send_keys(response)
                     if '*yes' in message:
-                        image,title=i.rpun(message)
+                        image,title=i.ranattepmt(message)
                         s.send(driver,image,title)
                     else:
-                        response=i.rpun(message)
+                        response=i.ranattepmt(message)
                         textbox.send_keys(response)
                         t.sleep(5)
                         textbox.send_keys('\n') 
