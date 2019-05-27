@@ -1,0 +1,358 @@
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+--2019-05-28 00:32:54--  https://i.redd.it/70p120z25p031.jpg
+Resolving i.redd.it (i.redd.it)... 151.101.157.140
+Connecting to i.redd.it (i.redd.it)|151.101.157.140|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 102163 (100K) [image/jpeg]
+Saving to: 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/70p120z25p031.jpg'
+
+     0K .......... .......... .......... .......... .......... 50% 1.79M 0s
+    50K .......... .......... .......... .......... ......... 100% 6.51M=0.03s
+
+2019-05-28 00:32:55 (2.80 MB/s) - 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/70p120z25p031.jpg' saved [102163/102163]
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+--2019-05-28 00:35:18--  https://i.redd.it/2yjafdritj031.jpg
+Resolving i.redd.it (i.redd.it)... 151.101.153.140
+Connecting to i.redd.it (i.redd.it)|151.101.153.140|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 32363 (32K) [image/jpeg]
+Saving to: 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/2yjafdritj031.jpg'
+
+     0K .......... .......... .......... .                    100% 1.80M=0.02s
+
+2019-05-28 00:35:19 (1.80 MB/s) - 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/2yjafdritj031.jpg' saved [32363/32363]
+
+--2019-05-28 00:35:57--  https://i.redd.it/jypc57zm7r031.jpg
+Resolving i.redd.it (i.redd.it)... 151.101.157.140
+Connecting to i.redd.it (i.redd.it)|151.101.157.140|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9380 (9.2K) [image/jpeg]
+Saving to: 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/jypc57zm7r031.jpg'
+
+     0K .........                                             100%  551K=0.02s
+
+2019-05-28 00:35:58 (551 KB/s) - 'C:/Users/Bamgm14/Desktop/GarbageBot-The-Original--master/GarbageBot-The-Original--master/PictureTemp/jypc57zm7r031.jpg' saved [9380/9380]
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=74.0.3729.169)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Windows NT 10.0.17763 x86_64)
+
+Traceback (most recent call last):
+  File "Bot.py", line 118, in <module>
+    SnL.Loop(textbox,driver)
+  File "C:\Users\Bamgm14\Desktop\GarbageBot-The-Original--master\GarbageBot-The-Original--master\SnL.py", line 64, in Loop
+    flag=Standard(textbox,x)
+  File "C:\Users\Bamgm14\Desktop\GarbageBot-The-Original--master\GarbageBot-The-Original--master\SnL.py", line 56, in Standard
+    t.sleep(5)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "Bot.py", line 118, in <module>
+    SnL.Loop(textbox,driver)
+  File "C:\Users\Bamgm14\Desktop\GarbageBot-The-Original--master\GarbageBot-The-Original--master\SnL.py", line 64, in Loop
+    flag=Standard(textbox,x)
+  File "C:\Users\Bamgm14\Desktop\GarbageBot-The-Original--master\GarbageBot-The-Original--master\SnL.py", line 56, in Standard
+    t.sleep(5)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 72, in request
+    **urlopen_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\poolmanager.py", line 324, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "Bot.py", line 22, in <module>
+    register=driver.find_elements_by_class_name("OUeyt")
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 580, in find_elements_by_class_name
+    return self.find_elements(by=By.CLASS_NAME, value=name)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1007, in find_elements
+    'value': value})['value'] or []
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Bamgm14\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=74.0.3729.169)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Windows NT 10.0.17763 x86_64)
+

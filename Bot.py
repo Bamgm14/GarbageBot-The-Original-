@@ -10,8 +10,8 @@ import Send as s
 import BnT
 flag=1
 driver = webdriver.Chrome()
-driver.get('http://web.whatsapp.com')
 driver.maximize_window()
+driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code and press enter')
 t.sleep(10)
 while True:
