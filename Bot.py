@@ -57,7 +57,7 @@ while True:
                 assert '\n' in message, 'Please No \\n(Enter Key)'
                 textbox = driver.find_element_by_class_name("_2S1VP")
                 if '!help' in message.lower():
-                    response='Commands:!yt <Item To Be Searched>,!Birthday <Name>,!AddBirthday <Name>:<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_"),!checkbirthday <optinal{(mm)-(dd)}[default is current date]>,!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>,!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!showerthou <optional[?top,?new,?contro,?rising,?hot]>\n'
+                    response='Commands:!yt <Item To Be Searched>,!Birthday <Name>,!AddBirthday <Name>:<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_"),!checkbirthday <optinal{(mm)-(dd)}[default is current date]>,!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>,!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!showerthou <optional[?top,?new,?contro,?rising,?hot]>,!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!bnt <Name1,Name2,etc> <Level>\n'
                     textbox.send_keys(response)
                     pass
                 if '!birthday' in message.lower():#Need To Update
@@ -84,6 +84,18 @@ while True:
                         textbox.send_keys(response)
                         t.sleep(5)
                         textbox.send_keys('\n')
+                    pass
+                if '!anattempt' in message:
+                    response='One Minute\n'
+                    textbox.send_keys(response)
+                    if '*yes' in message:
+                        image,title=i.rpun(message)
+                        s.send(driver,image,title)
+                    else:
+                        response=i.rpun(message)
+                        textbox.send_keys(response)
+                        t.sleep(5)
+                        textbox.send_keys('\n') 
                     pass
                 if '!pun' in message:
                     response='One Minute\n'
@@ -113,6 +125,7 @@ while True:
                     textbox.send_keys('\n')
                     pass
                 if '!bnt' in message:
+                    assert int(message.split(' ')[2].split('\n')[0]) in [1,2,3,4],'Not Possible Level'
                     BnT.Builder(int(message.split(' ')[2].split('\n')[0]),message.split(' ')[1].split(','))
                     import SnL
                     SnL.Loop(textbox,driver)
