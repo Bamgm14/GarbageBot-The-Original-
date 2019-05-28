@@ -5,7 +5,7 @@ def ArriveUser(User,date):
     if ' ' in User:
         User.replace(' ','_')
     a=open('Users.txt','a')
-    a.write(User+'\n#True[('+date.split('T')[0]+')('+date.split('T')[1]+')]\n')
+    a.write('\n'+User+'#True[('+date.split('T')[0]+')('+date.split('T')[1]+')]\n')
     a.close()
 def LeaveUser(User,date):
     a=open('Users.txt','r')
