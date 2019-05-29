@@ -9,7 +9,7 @@ import Internet as i
 import Send as s
 import BnT
 flag=1
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code and press enter')
@@ -19,7 +19,7 @@ while True:
     if flag==1:
         calender=b.Refresh()
         flag=0
-    register=driver.find_elements_by_class_name("OUeyt")
+    register=driver.find_elements_by_class_name("P6z4j")
     date=d.datetime.now().isoformat()
     if len(register) > 0:
         ele = register[-1]
@@ -33,29 +33,26 @@ while True:
         except Exception as e:
             pass
         try:
-            name = driver.find_element_by_class_name("_16vzP").text
-            message = driver.find_elements_by_class_name("vW7d1")[-1].text.lower()
+            name = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[1]/div/span").text
+            message = driver.find_elements_by_class_name("-N6Gq")[-1].text.lower()
+            textbox = driver.find_element_by_xpath("/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
             if 'garbage.exe' in message.lower():
                 if name not in user:
                     u.ArriveUser(name,date)
-                    textbox = driver.find_element_by_class_name("_2S1VP")
                     response='Hello, This Is Garbage, Thank You For Calling Me, '+name+'. If you need help, Say !help, If you want me to leave say bye garb and please no enter keys(\\n)\n'
                     textbox.send_keys(response)
                     pass
                 elif name in user and 'false' in user[name].lower():
                     u.ArriveUser(name,date)
-                    textbox = driver.find_element_by_class_name("_2S1VP")
                     response='Hello, This Is Garbage, Thank You For Calling Me Again, '+name+'. If you need help, Say !help, If you want me to leave say bye garb and please no enter keys(\\n)\n'
                     textbox.send_keys(response)
                     pass
                 else:
-                    textbox = driver.find_element_by_class_name("_2S1VP")
                     response='I am already here\n'
                     textbox.send_keys(response)
                     pass
             if name in user:
                 assert '\n' in message, 'Please No \\n(Enter Key)'
-                textbox = driver.find_element_by_class_name("_2S1VP")
                 if '!help' in message.lower():
                     response='Commands:!yt <Item To Be Searched>,!Birthday <Name>,!AddBirthday <Name>:<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_"),!checkbirthday <optinal{(mm)-(dd)}[default is current date]>,!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>,!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!showerthou <optional[?top,?new,?contro,?rising,?hot]>,!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!bnt <Name1,Name2,etc> <Level>\n'
                     textbox.send_keys(response)
@@ -89,10 +86,10 @@ while True:
                     response='One Minute\n'
                     textbox.send_keys(response)
                     if '*yes' in message:
-                        image,title=i.ranattepmt(message)
+                        image,title=i.ranattempt(message)
                         s.send(driver,image,title)
                     else:
-                        response=i.ranattepmt(message)
+                        response=i.ranattempt(message)
                         textbox.send_keys(response)
                         t.sleep(5)
                         textbox.send_keys('\n') 
@@ -140,7 +137,7 @@ while True:
                     break
         except Exception as e:
             print (e)
-            textbox = driver.find_element_by_class_name("_2S1VP")
+            textbox = driver.find_element_by_xpath("/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
             response=str(e)[0].upper()+str(e)[1:]+'\n'
             textbox.send_keys(response)
         t.sleep(1)
