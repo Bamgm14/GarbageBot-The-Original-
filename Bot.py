@@ -9,10 +9,11 @@ import Internet as i
 import Send as s
 import BnT
 flag=1
+listing={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert}
 driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
-print('Please Scan the QR Code and press enter')
+print('Please Scan the QR Code')
 t.sleep(10)
 while True:
     user=u.Users()
@@ -70,57 +71,28 @@ while True:
                 if '!checkbrithday' in message.lower():#Need To Update
                     b.CheckBirthday(message,date,calender)
                     pass
-                if '!memes' in message:
-                    response='One Minute\n'
-                    textbox.send_keys(response)
-                    if '*yes' in message:
-                        image,title=i.rmemes(message)
-                        s.send(driver,image,title)
-                    else:
-                        response=i.rmemes(message)
+                for x in list(listing.keys()):
+                    if x in message:
+                        response='One Minute\n'
                         textbox.send_keys(response)
-                        t.sleep(5)
-                        textbox.send_keys('\n')
-                    pass
-                if '!anattempt' in message:
-                    response='One Minute\n'
-                    textbox.send_keys(response)
-                    if '*yes' in message:
-                        image,title=i.ranattempt(message)
-                        s.send(driver,image,title)
-                    else:
-                        response=i.ranattempt(message)
-                        textbox.send_keys(response)
-                        t.sleep(5)
-                        textbox.send_keys('\n') 
-                    pass
-                if '!pun' in message:
-                    response='One Minute\n'
-                    textbox.send_keys(response)
-                    if '*yes' in message:
-                        image,title=i.rpun(message)
-                        s.send(driver,image,title)
-                    else:
-                        response=i.rpun(message)
-                        textbox.send_keys(response)
-                        t.sleep(5)
-                        textbox.send_keys('\n') 
-                    pass
-                if '!yt' in message:
-                    response='One Minute\n'
-                    textbox.send_keys(response)
-                    response=i.youtube(message)
-                    textbox.send_keys(response)
-                    t.sleep(5)
-                    textbox.send_keys('\n')
-                if '!showerthou' in message:
-                    response='One Minute\n'
-                    textbox.send_keys(response)
-                    response=i.rshowert(message)
-                    textbox.send_keys(response)
-                    t.sleep(5)
-                    textbox.send_keys('\n')
-                    pass
+                        if ('*yes' in message):
+                            image,title=listing[x](message)
+                            if image==None:
+                                response="Image Doesn't Exist\n"
+                                textbox.send_keys(response)
+                                textbox.send_keys(title)
+                                t.sleep(5)
+                                textbox.send_keys('\n')
+                                pass
+                            else:
+                                s.send(driver,image,title)
+                                pass
+                        else:
+                            response=listing[x](message)
+                            textbox.send_keys(response)
+                            t.sleep(5)
+                            textbox.send_keys('\n')
+                            pass
                 if '!bnt' in message:
                     assert int(message.split(' ')[2].split('\n')[0]) in [1,2,3,4],'Not Possible Level'
                     BnT.Builder(int(message.split(' ')[2].split('\n')[0]),message.split(' ')[1].split(','))
