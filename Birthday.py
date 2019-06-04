@@ -1,52 +1,78 @@
-def Newbirthday(message,calender):
+import datetime as d
+import time as t
+from bs4 import BeautifulSoup
+import urllib3
+import random as r
+import os
+def Newbirthday(message,calender,Random=None):
     binfo=message.split(' ')[1]
     binfo=binfo.split('\n')[0]
     blis=binfo.split(':')
-    fix=blis[0]+':'+blis[1]
+    fix=blis[0][0].upper()+blis[0][1:]+':'+blis[1]
     bdate=blis[1].split('-')
     assert blis[0].isalpha(),'I need a name, not Numbers'
     assert blis[0] not in list(calender.keys()),'Name Already Exists,if this try adding the second name with "_"'
-    assert int(bdate[0]) in [1,2,3,4,5,6,7,8,9,10,11,12] and int(bdate[1]) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],'Not a date'
+    d.date(int(bdate[0]),int(bdate[1]),int(bdate[2]))
     b=open('Birthdays.txt','a')
     b.write('\n'+fix)
     b.close()
+    return 'Successful'
 def Refresh():
     calender={}
     a=open('Birthdays.txt','r+')
-    birthday=a.read()
-    cal=birthday.split('\n')
-    for x in cal:
+    birthday=a.read().split('\n')
+    for x in birthday:
         if x!='':
             calender[x.split(':')[0]]=x.split(':')[1]
     a.close()
     return calender
-def FindBirthday(message,date,calender):
+def FindBirthday(message,calender,date=d.datetime.now().isoformat()):
     bname=message.split(' ')[1]
     bname=bname.split('\n')[0]
     if bname in calender.keys():
         response=calender[bname]
-        if date.split('T')[0][5:]==response:
+        if date.split('T')[0][5:]==response[5:]:
             response+='\nHAPPY BIRTHDAY '+bname+'!!\n'
         return response
     else:
         response='No Name In Database\n'
         return response
-def CheckBirthday(message,date,calender):
+def CheckBirthday(message,calender,date=d.datetime.now().isoformat()):
     response='Here Are '
     if '?' not in message:
         response+='Todays Birthdays:\n'
         for x in calender:
-            if calender[x]==date:
+            if calender[x][5:]==date.split('T')[0][5:]:
                 response+=x+'\n'
-        if len(x.split('\n'))<=1:
-            response+='No Birthdays In Database'
+        if len(response.split('\n'))<=2:
+            response+='\nNo Birthdays In Database'
     else:
-        check=(x.split('?')[1]).split('\n')[0]
-        assert int(check.split('-')[0]) in [1,2,3,4,5,6,7,8,9,10,11,12] and int(check.split('-')[1]) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],'Not a date'
-        response+=check+' Brithdays:'
+        check=(message.split('?')[1]).split('\n')[0]
+        assert d.date(2000,int(check.split('-')[0]),int(check.split('-')[1])),'Not a date'
+        response+=check+' Brithdays:\n'
         for x in calender:
-            if calender[x]==check:
+            if calender[x][5:]==check:
                 response+=x+'\n'
-        if len(x.split('\n'))<=1:
-            response+='No Birthdays In Database'
+        if len(response.split('\n'))<=2:
+            response+='\nNo Birthdays In Database'
+    return response
+def HB(date,browser,name,textbox):
+    try:
+        click_menu = browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[2]/span').text.lower()
+        assert 'last' and 'online' not in click_menu,'Second Path'
+        assert 'typing' not in click_menu,'Please Stop Typing'
+        participate=click_menu.split(',')
+        return participate
+    except Exception as e:
+        if str(e)=='Please Stop Typing':
+            textbox.send_keys(e)
+            return HB(date,browser,name,textbox)
+        else:
+            lst=[]
+            lst.append(name.lower())
+            return lst
+def g_check(lst,calender):
+    response='Here You Go:\n'
+    for x in lst:
+        response+=x.replace(' ','')+':'+FindBirthday(' '+x.replace(' ',''),calender,d.datetime.now().isoformat())+'\n'
     return response

@@ -1,4 +1,5 @@
 import datetime as d
+from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import time as t
@@ -8,8 +9,8 @@ import Birthday as b
 import Internet as i
 import Send as s
 import BnT
-flag=1
-listing={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert}
+nor={'!help':'Commands:\n!yt <Item To Be Searched>\n!Birthday <Name>\n!AddBirthday <Name>:<Year>(yyyy)-<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_")\n!checkbirthday ?<optinal{(mm)-(dd)}[default is current date]>\n!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>\n!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!showerthou <optional[?top,?new,?contro,?rising,?hot]>\n!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!bnt <Name1,Name2,etc> <Level>','!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
+net={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert}
 driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
@@ -17,9 +18,7 @@ print('Please Scan the QR Code')
 t.sleep(10)
 while True:
     user=u.Users()
-    if flag==1:
-        calender=b.Refresh()
-        flag=0
+    calender=b.Refresh()
     register=driver.find_elements_by_class_name("P6z4j")
     date=d.datetime.now().isoformat()
     if len(register) > 0:
@@ -54,29 +53,23 @@ while True:
                     pass
             if name in user:
                 assert '\n' in message, 'Please No \\n(Enter Key)'
-                if '!help' in message.lower():
-                    response='Commands:!yt <Item To Be Searched>,!Birthday <Name>,!AddBirthday <Name>:<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_"),!checkbirthday <optinal{(mm)-(dd)}[default is current date]>,!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>,!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!showerthou <optional[?top,?new,?contro,?rising,?hot]>,!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>,!bnt <Name1,Name2,etc> <Level>\n'
-                    textbox.send_keys(response)
-                    pass
-                if '!birthday' in message.lower():#Need To Update
-                    response=b.FindBirthday(message,date,calender)
-                    textbox.send_keys(str(response+'\n'))
-                    pass
-                if '!addbirthday' in message.lower():#Need To Update
-                    b.Newbirthday(message)
-                    flag=1
-                    response='Successful\n'
-                    textbox.send_keys(response)
-                    pass
-                if '!checkbrithday' in message.lower():#Need To Update
-                    b.CheckBirthday(message,date,calender)
-                    pass
-                for x in list(listing.keys()):
+                for x in list(nor.keys()):
+                    if x in message:
+                        try:
+                            res=nor[x](message,calender,date)
+                        except:
+                            res=nor[x]
+                        for x in res.split('\n'):
+                            textbox.send_keys(x)
+                            textbox.send_keys(Keys.SHIFT+Keys.ENTER)
+                        textbox.send_keys('\n')
+                        pass
+                for x in list(net.keys()):
                     if x in message:
                         response='One Minute\n'
                         textbox.send_keys(response)
                         if ('*yes' in message):
-                            image,title=listing[x](message)
+                            image,title=net[x](message)
                             if image==None:
                                 response="Image Doesn't Exist\n"
                                 textbox.send_keys(response)
@@ -100,6 +93,12 @@ while True:
                     SnL.Loop(textbox,driver)
                     del SnL
                     pass
+                if '!gbc' in message:
+                    res=b.g_check(b.HB(date,driver,name,textbox),calender)
+                    for x in res.split('\n'):
+                        textbox.send_keys(x)
+                        textbox.send_keys(Keys.SHIFT+Keys.ENTER)
+                    textbox.send_keys('\n')
                 if 'bye garb' in message.lower():
                     response='Goodbye\n'
                     textbox.send_keys(response)

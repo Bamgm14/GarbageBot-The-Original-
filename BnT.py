@@ -8,15 +8,15 @@ import Send as s
 import time as t
 import matplotlib.pyplot as plt
 import numpy as np
-def Set(n,c):
+plt.grid()
+plt.axis([-1,10,-1,10])
+plt.xticks(np.arange(-1, 10, step=1))
+plt.yticks(np.arange(-1, 10, step=1))
+def Set(n,c=None):
     global Ladders
     global Snakes
     global Players
     a={}
-    plt.grid()
-    plt.axis([-1,10,-1,10])
-    plt.xticks(np.arange(-1, 10, step=1))
-    plt.yticks(np.arange(-1, 10, step=1))
     for x in Ladders:
         Alg(x,'g*')
     for x in Snakes:
