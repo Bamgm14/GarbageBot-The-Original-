@@ -1,18 +1,22 @@
 import datetime as d
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import time as t
 import urllib3
+import Blind as bd
 import User as u
 import Birthday as b
 import Internet as i
 import Send as s
 import BnT
+import MA as m
 nor={'!help':'Commands:\n!yt <Item To Be Searched>\n!Birthday <Name>\n!AddBirthday <Name>:<Year>(yyyy)-<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_")\n!checkbirthday ?<optinal{(mm)-(dd)}[default is current date]>\n!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>\n!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!showerthou <optional[?top,?new,?contro,?rising,?hot]>\n!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!bnt <Name1,Name2,etc> <Level>','!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
 net={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert}
 driver = webdriver.Firefox()
 driver.maximize_window()
+blist=[]
 driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code')
 t.sleep(10)
@@ -49,6 +53,8 @@ while True:
                     pass
                 else:
                     response='I am already here\n'
+                    if name in blist:
+                        bd.blindmode(driver,response)
                     textbox.send_keys(response)
                     pass
             if name in user:
@@ -59,6 +65,8 @@ while True:
                             res=nor[x](message,calender,date)
                         except:
                             res=nor[x]
+                        if name in blist:
+                            bd.blindmode(driver,res)
                         for x in res.split('\n'):
                             textbox.send_keys(x)
                             textbox.send_keys(Keys.SHIFT+Keys.ENTER)
@@ -67,21 +75,29 @@ while True:
                 for x in list(net.keys()):
                     if x in message:
                         response='One Minute\n'
+                        if name in blist:
+                            bd.blindmode(driver,response)
                         textbox.send_keys(response)
                         if ('*yes' in message):
                             image,title=net[x](message)
                             if image==None:
                                 response="Image Doesn't Exist\n"
+                                if name in blist:
+                                    bd.blindmode(driver,response)
                                 textbox.send_keys(response)
+                                if name in blist:
+                                    bd.blindmode(driver,title)
                                 textbox.send_keys(title)
                                 t.sleep(5)
                                 textbox.send_keys('\n')
                                 pass
                             else:
-                                s.send(driver,image,title)
+                                s.send(driver,image,name,blist,title)
                                 pass
                         else:
                             response=listing[x](message)
+                            if name in blist:
+                                bd.blindmode(driver,response)
                             textbox.send_keys(response)
                             t.sleep(5)
                             textbox.send_keys('\n')
@@ -95,12 +111,32 @@ while True:
                     pass
                 if '!gbc' in message:
                     res=b.g_check(b.HB(date,driver,name,textbox),calender)
+                    if name in blist:
+                        bd.blindmode(driver,res)
                     for x in res.split('\n'):
                         textbox.send_keys(x)
                         textbox.send_keys(Keys.SHIFT+Keys.ENTER)
                     textbox.send_keys('\n')
+                if '!blindmode' in message:
+                    if '*active' in message:
+                        if name in blist:
+                            bd.blindmode(driver,'I am already online')
+                        else:
+                            blist.append(name)
+                            bd.blindmode(driver,'Blindmode Online')
+                    elif '*deactive' in message:
+                        blist.remove(name)
+                        bd.blindmode(driver,'Blindmode Offline')
+                if '!makeadmin' in message:
+                    m.makeadmin(driver,textbox,message,open('special.txt','r+').read().split('\n'),b.HB(date,driver,name,textbox))
+                    pass
+                if '*iam!special' in message:
+                    m.special(name,message,textbox)
+                    pass
                 if 'bye garb' in message.lower():
                     response='Goodbye\n'
+                    if name in blist:
+                        bd.blindmode(driver,response)
                     textbox.send_keys(response)
                     u.LeaveUser(name,date)
                     pass
@@ -110,5 +146,7 @@ while True:
             print (e)
             textbox = driver.find_element_by_xpath("/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
             response=str(e)[0].upper()+str(e)[1:]+'\n'
+            if name in blist:
+                bd.blindmode(driver,response)
             textbox.send_keys(response)
         t.sleep(1)

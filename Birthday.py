@@ -61,7 +61,7 @@ def HB(date,browser,name,textbox):
         click_menu = browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[2]/span').text.lower()
         assert 'last' and 'online' not in click_menu,'Second Path'
         assert 'typing' not in click_menu,'Please Stop Typing'
-        participate=click_menu.split(',')
+        participate=click_menu.replace(' ','').split(',')
         return participate
     except Exception as e:
         if str(e)=='Please Stop Typing':
@@ -74,5 +74,6 @@ def HB(date,browser,name,textbox):
 def g_check(lst,calender):
     response='Here You Go:\n'
     for x in lst:
-        response+=x.replace(' ','')+':'+FindBirthday(' '+x.replace(' ',''),calender,d.datetime.now().isoformat())+'\n'
+        if x.replace(' ','')!='you':
+            response+=x.replace(' ','')+':'+FindBirthday(' '+x.replace(' ',''),calender,d.datetime.now().isoformat())+'\n'
     return response
