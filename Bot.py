@@ -117,7 +117,7 @@ while True:
                         textbox.send_keys(x)
                         textbox.send_keys(Keys.SHIFT+Keys.ENTER)
                     textbox.send_keys('\n')
-                if '!blindmode' in message:
+                if '!blindmode' in message:#Unstable
                     if '*active' in message:
                         if name in blist:
                             bd.blindmode(driver,'I am already online')
@@ -127,10 +127,10 @@ while True:
                     elif '*deactive' in message:
                         blist.remove(name)
                         bd.blindmode(driver,'Blindmode Offline')
-                if '!makeadmin' in message:
+                if '!makeadmin' in message:#Unstable
                     m.makeadmin(driver,textbox,message,open('special.txt','r+').read().split('\n'),b.HB(date,driver,name,textbox))
                     pass
-                if '*iam!special' in message:
+                if '*iam!special' in message:#Unstable
                     m.special(name,message,textbox)
                     pass
                 if 'bye garb' in message.lower():
