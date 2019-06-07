@@ -57,7 +57,7 @@ while True:
                         bd.blindmode(driver,response)
                     textbox.send_keys(response)
                     pass
-            if name in user:
+            if (name in user) and ('true' in user[name].lower()):
                 assert '\n' in message, 'Please No \\n(Enter Key)'
                 for x in list(nor.keys()):
                     if x in message:
@@ -144,6 +144,10 @@ while True:
                     break
         except Exception as e:
             print (e)
+            try:
+                driver.find_element_by_class_name('qfKkX').click()
+            except:
+                pass
             textbox = driver.find_element_by_xpath("/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
             response=str(e)[0].upper()+str(e)[1:]+'\n'
             if name in blist:
