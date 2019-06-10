@@ -12,7 +12,7 @@ def send(driver,direct,name=None,lst=None,caption=None):
     attach_img_btn = driver.find_element_by_xpath(attach_type_xpath)
     # TODO - might need to click on transportation mode if url doesn't work
     attach_img_btn.send_keys(direct)
-    t.sleep(1)
+    t.sleep(3)
     if caption!=None:
         caption_xpath = "/html/body/div[1]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/span/div/div[2]/div/div[3]/div[1]/div[2]"
         send_caption = driver.find_element_by_xpath(caption_xpath)
