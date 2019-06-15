@@ -27,9 +27,9 @@ def makeadmin(driver,textbox,message,botadmin,lst):
         textbox.send_keys("You Aren't Special\n")
 def special(name,message,textbox):
     try:
-        a=open('special.txt','a')
+        a=open('Special.txt','a')
     except:
-        a=open('special.txt','w+')
+        a=open('Special.txt','w+')
     a.write(name.lower()+'\n')
     a.close()
     textbox.send_keys('You Are Special\n')

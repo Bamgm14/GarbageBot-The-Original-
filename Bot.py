@@ -12,8 +12,9 @@ import Internet as i
 import Send as s
 import BnT
 import MA as m
-nor={'!help':'Commands:\n!yt <Item To Be Searched>\n!Birthday <Name>\n!AddBirthday <Name>:<Year>(yyyy)-<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_")\n!checkbirthday ?<optinal{(mm)-(dd)}[default is current date]>\n!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>\n!pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!showerthou <optional[?top,?new,?contro,?rising,?hot]>\n!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>\n!bnt <Name1,Name2,etc> <Level>','!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
-net={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert}
+hlp=open('Help.txt','r')
+nor={'!help':hlp.read(),'!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
+net={'!memes':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert,'!physmeme':i.rphysmeme,'!chemmeme':i.rchemmeme,'!mathmeme':i.rmathmeme}
 driver = webdriver.Firefox()
 driver.maximize_window()
 blist=[]
@@ -27,6 +28,10 @@ while True:
         calender=b.Refresh()
         register=driver.find_elements_by_class_name(gd)
         date=d.datetime.now().isoformat()
+        try:
+            driver.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/div[3]/div/span[2]/div/span[2]').click()
+        except:
+            pass
         if len(register) > 0:
             ele = register[-1]
             action = webdriver.common.action_chains.ActionChains(driver)
@@ -135,7 +140,7 @@ while True:
                     if '*iam!special' in message:#Unstable
                         m.special(name,message,textbox)
                         pass
-                    if '!amd' in message:#Unstable
+                    if '!amb' in message:#Unstable
                         m.Addmeback(message,driver,textbox,name)
                         pass
                     if '!lmb' in message:#Unstable
