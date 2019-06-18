@@ -17,7 +17,6 @@ gd,nme,msg,tbx,qt,down=("P6z4j","/html/body/div[1]/div/div/div[4]/div/header/div
 while True:
     try:
         user=u.Users()
-        calender=b.Refresh()
         register=driver.find_elements_by_class_name(gd)
         date=d.datetime.now().isoformat()
         try:
