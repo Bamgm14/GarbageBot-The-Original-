@@ -38,7 +38,7 @@ while True:
                 name = driver.find_element_by_xpath(nme).text
                 message = driver.find_elements_by_class_name(msg)[-1].text.lower()
                 if msgstoragemode.lower()=='y':
-                    a=open('MessageHistory','a')
+                    a=open('MessageHistory.txt','a')
                     a.write(name+':'+message+'\n')
                     a.close()
                 textbox = driver.find_element_by_xpath(tbx)
