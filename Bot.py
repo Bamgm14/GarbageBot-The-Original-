@@ -3,9 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time as t
+import User as u
 import Commands as cmd
-hlp=open('Help.txt','r').read()
-driver = webdriver.Firefox()
+hlp=open('Help.txt','r').read()driver = webdriver.Firefox()
 driver.maximize_window()
 blist=[]
 driver.get('http://web.whatsapp.com')

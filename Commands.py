@@ -1,5 +1,4 @@
 import Blind as bd
-import User as u
 import Birthday as b
 import Internet as i
 import Interface as In
