@@ -43,6 +43,10 @@ def rphysmeme(message):
     urllist=['https://www.reddit.com/r/physicsmemes/','https://www.reddit.com/r/physicsjokes/']
     url=str(r.choice(urllist))
     return Over(url,message)
+def rcompmeme(message):
+    urllist=['https://www.reddit.com/r/programmingmemes/','https://www.reddit.com/r/ProgrammerHumor/']
+    url=str(r.choice(urllist))
+    return Over(url,message)
 def rchemmeme(message):
     url = 'https://www.reddit.com/r/chemistrymemes/'
     return Over(url,message)
@@ -77,5 +81,5 @@ def yes(url):
             image.append(x.get('href'))
     if len(image)==0:
         return None,url
-    os.system(r'wget -P '+os.getcwd()+'\PictureTemp '+str(image[0]))
+    os.system(r'wget -P "'+os.getcwd()+'\PictureTemp" '+str(image[0]))
     return os.getcwd()+'\\PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]

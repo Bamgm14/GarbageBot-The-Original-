@@ -56,24 +56,9 @@ def CheckBirthday(message,calender,date=d.datetime.now().isoformat()):
         if len(response.split('\n'))<=2:
             response+='\nNo Birthdays In Database'
     return response
-def HB(date,browser,name,textbox):
-    try:
-        click_menu = browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[2]/span').text.lower()
-        assert 'last' and 'online' not in click_menu,'Second Path'
-        assert 'typing' not in click_menu,'Please Stop Typing'
-        participate=click_menu.replace(' ','').split(',')
-        return participate
-    except Exception as e:
-        if str(e)=='Please Stop Typing':
-            textbox.send_keys(e)
-            return HB(date,browser,name,textbox)
-        else:
-            lst=[]
-            lst.append(name.lower())
-            return lst
 def g_check(lst,calender):
     response='Here You Go:\n'
     for x in lst:
-        if x.replace(' ','')!='you':
+        if 'you' not in x.replace(' ',''):
             response+=x.replace(' ','')+':'+FindBirthday(' '+x.replace(' ',''),calender,d.datetime.now().isoformat())+'\n'
     return response

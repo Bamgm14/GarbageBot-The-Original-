@@ -1,7 +1,7 @@
 import os
 import platform
 Frame=platform.architecture()[0]
-lib=['selenium','bs4','urllib3','matplotlib','numpy','requests']
+lib=['selenium','bs4','urllib3','matplotlib','numpy','requests','gtts','matplotlib','numpy']
 for x in lib:
     os.system('python3 -m pip install '+str(x)+' --user|| python -m pip install '+str(x)+' --user')
 import requests as r
