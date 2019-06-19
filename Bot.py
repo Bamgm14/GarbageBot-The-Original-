@@ -4,6 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time as t
 import User as u
+import Constant as c
 import Commands as cmd
 hlp=open('Help.txt','r').read()
 driver = webdriver.Firefox()
@@ -17,10 +18,10 @@ gd,nme,msg,tbx,qt,down=("P6z4j","/html/body/div[1]/div/div/div[4]/div/header/div
 while True:
     try:
         user=u.Users()
-        register=driver.find_elements_by_class_name(gd)
+        register=driver.find_elements_by_class_name(c.Greendot)
         date=d.datetime.now().isoformat()
         try:
-            driver.find_element_by_xpath(down).click()
+            driver.find_element_by_xpath(c.Down).click()
         except:
             pass
         if len(register) > 0:
@@ -35,13 +36,13 @@ while True:
             except Exception as e:
                 pass
             try:
-                name = driver.find_element_by_xpath(nme).text
-                message = driver.find_elements_by_class_name(msg)[-1].text.lower()
+                name = driver.find_element_by_xpath(c.Nme).text
+                message = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
                 if msgstoragemode.lower()=='y':
                     a=open('MessageHistory.txt','a')
                     a.write(name+':'+message+'\n')
                     a.close()
-                textbox = driver.find_element_by_xpath(tbx)
+                textbox = driver.find_element_by_xpath(c.Tbx)
                 if 'garbage.exe' in message.lower():
                     if name not in user:
                         u.ArriveUser(name,date)
@@ -87,10 +88,10 @@ while True:
             except Exception as e:
                 print (e)
                 try:
-                    driver.find_element_by_class_name(qt).click()
+                    driver.find_element_by_class_name(c.Qt).click()
                 except:
                     pass
-                textbox = driver.find_element_by_xpath(tbx)
+                textbox = driver.find_element_by_xpath(c.Tbx)
                 response=str(e)[0].upper()+str(e)[1:]+'\n'
                 if name in blist:
                     bd.blindmode(driver,response)

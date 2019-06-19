@@ -10,3 +10,4 @@ Commands:
 !mathmeme <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
 !anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
 !bnt <Name1,Name2,etc> <Level>
+!cricket <required[?status,?live]> (<Team1>,<Team2>)
