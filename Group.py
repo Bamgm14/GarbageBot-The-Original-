@@ -68,7 +68,7 @@ def linkmeback(message,driver,textbox,name):
     driver.find_element_by_xpath(c.Back).click()
 def HB(message,browser,textbox,name):
     try:
-        click_menu = browser.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[2]/span').text.lower()
+        click_menu = browser.find_element_by_xpath(c.Menu).text.lower()
         assert 'last' and 'online' not in click_menu,'Second Path'
         assert 'typing' not in click_menu,'Please Stop Typing\n'
         participate=click_menu.replace(' ','').split(',')

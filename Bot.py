@@ -9,12 +9,9 @@ import Commands as cmd
 hlp=open('Help.txt','r').read()
 driver = webdriver.Firefox()
 driver.maximize_window()
-blist=[]
 driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code')
-t.sleep(1)
 msgstoragemode=input('Do You Want To Store All Incoming Messages?[Y/N](Only If You Have Good Storage):')
-gd,nme,msg,tbx,qt,down=("P6z4j","/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[1]/div/span","-N6Gq","/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]",'qfKkX','/html/body/div[1]/div/div/div[4]/div/div[3]/div/span[2]/div/span[2]')
 while True:
     try:
         user=u.Users()
@@ -56,30 +53,19 @@ while True:
                         pass
                     else:
                         response='I am already here\n'
-                        if name in blist:
-                            bd.blindmode(driver,response)
                         textbox.send_keys(response)
                         pass
                 if (name in user) and ('true' in user[name].lower()):
                     assert '\n' in message, 'Please No \\n(Enter Key)'
                     if '!help' in message:
                         res=hlp
-                        if name in blist:
-                            bd.blindmode(driver,res)
                         for x in res.split('\n'):
                             textbox.send_keys(x)
                             textbox.send_keys(Keys.SHIFT+Keys.ENTER)
                         textbox.send_keys('\n')
-                    cmd.Birth(driver,textbox,date,message,name)
-                    cmd.Net(driver,textbox,message,name)
-                    cmd.Group(message,driver,textbox,name)
-                    cmd.Cri(message,driver,textbox,name)
-                    cmd.Blindmode(driver,message,name)
-                    cmd.BnTAndGbc(message,textbox,driver,name,date)
+                    cmd.Commands(driver,textbox,date,message,name)
                     if 'bye garb' in message.lower():
                         response='Goodbye\n'
-                        if name in blist:
-                            bd.blindmode(driver,response)
                         textbox.send_keys(response)
                         u.LeaveUser(name,date)
                         pass
@@ -91,11 +77,10 @@ while True:
                     driver.find_element_by_class_name(c.Qt).click()
                 except:
                     pass
-                textbox = driver.find_element_by_xpath(c.Tbx)
-                response=str(e)[0].upper()+str(e)[1:]+'\n'
-                if name in blist:
-                    bd.blindmode(driver,response)
-                textbox.send_keys(response)
+                if (name in user) and ('true' in user[name].lower()):
+                    textbox = driver.find_element_by_xpath(c.Tbx)
+                    response=str(e)[0].upper()+str(e)[1:]+'\n'
+                    textbox.send_keys(response)
             t.sleep(1)
     except Exception as e:
         print(e)

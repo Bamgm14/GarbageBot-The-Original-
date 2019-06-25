@@ -8,7 +8,7 @@ def Newbirthday(message,calender,Random=None):
     binfo=message.split(' ')[1]
     binfo=binfo.split('\n')[0]
     blis=binfo.split(':')
-    fix=blis[0][0].upper()+blis[0][1:]+':'+blis[1]
+    fix=blis[0]+':'+blis[1]
     bdate=blis[1].split('-')
     assert blis[0].isalpha(),'I need a name, not Numbers'
     assert blis[0] not in list(calender.keys()),'Name Already Exists,if this try adding the second name with "_"'
@@ -60,5 +60,5 @@ def g_check(lst,calender):
     response='Here You Go:\n'
     for x in lst:
         if 'you' not in x.replace(' ',''):
-            response+=x.replace(' ','')+':'+FindBirthday(' '+x.replace(' ',''),calender,d.datetime.now().isoformat())+'\n'
+            response+=x.replace(' ','').lower()+':'+FindBirthday(' '+x.replace(' ','').lower(),calender,d.datetime.now().isoformat())+'\n'
     return response

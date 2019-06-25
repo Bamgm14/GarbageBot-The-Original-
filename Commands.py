@@ -5,14 +5,25 @@ import Interface as In
 import Send as s
 import BnT
 import Group as g
-#open('Help.txt','r').read()
+import JCInterface as jc
 from selenium.webdriver.common.keys import Keys
 import time as t
 blist=[]
+JC=['!rtrans','!strans','!bankbal']
 grp={'!makeadmin':g.makeadmin,'*iam!special':g.special,'!amb':g.Addmeback,'!lmb':g.linkmeback}
 bir={'!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
 net={'!meme':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert,'!physmeme':i.rphysmeme,'!chemmeme':i.rchemmeme,'!mathmeme':i.rmathmeme,'!compmeme':i.rcompmeme}
-def Birth(driver,textbox,date,message,name):
+def Commands(driver,textbox,date,message,name):
+    global blist
+    for x in JC:
+        if x in message:
+            res=jc.Spliter(message)
+            if name in blist:
+                bd.blindmode(driver,res)
+            for x in res.split('\n'):
+                textbox.send_keys(x)
+                textbox.send_keys(Keys.SHIFT+Keys.ENTER)
+            textbox.send_keys('\n')
     for x in list(bir.keys()):
         if x in message:
             res=bir[x](message,b.Refresh(),date)
@@ -23,7 +34,6 @@ def Birth(driver,textbox,date,message,name):
                 textbox.send_keys(Keys.SHIFT+Keys.ENTER)
             textbox.send_keys('\n')
             pass
-def Net(driver,textbox,message,name):
     for x in list(net.keys()):
         if x in message:
             response='One Minute\n'
@@ -54,7 +64,6 @@ def Net(driver,textbox,message,name):
                 t.sleep(5)
                 textbox.send_keys('\n')
                 pass
-def BnTAndGbc(message,textbox,driver,name,date):
     if '!bnt' in message:
         assert int(message.split(' ')[2].split('\n')[0]) in [1,2,3,4],'Not Possible Level'
         BnT.Builder(int(message.split(' ')[2].split('\n')[0]),message.split(' ')[1].split(','))
@@ -70,9 +79,7 @@ def BnTAndGbc(message,textbox,driver,name,date):
             textbox.send_keys(x)
             textbox.send_keys(Keys.SHIFT+Keys.ENTER)
         textbox.send_keys('\n')
-def Blindmode(driver,message,name):
-    global blist
-    if '!blindmode' in message:#Unstable
+    if '!blindmode' in message:
         if '*active' in message:
             if name in blist:
                 bd.blindmode(driver,'I am already online')
@@ -93,11 +100,9 @@ def Blindmode(driver,message,name):
             for x in blist:
                 file.write(x+'\n')
             bd.blindmode(driver,'Blindmode Offline')
-def Group(message,driver,textbox,name):
     for x in grp.keys():
         if x in message:
             grp[x](message,driver,textbox,name)
-def Cri(message,driver,textbox,name):
     if '!cricket' in message:
         res=In.SInterface(message)
         if name in blist:
