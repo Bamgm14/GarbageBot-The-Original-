@@ -35,9 +35,10 @@ while True:
             try:
                 name = driver.find_element_by_xpath(c.Nme).text
                 message = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
+                UserName=driver.find_element_by_xpath(c.Info).get_attribute('data-pre-plain-text').split("]")[1]
                 if msgstoragemode.lower()=='y':
                     a=open('MessageHistory.txt','a')
-                    a.write(name+':'+message+'\n')
+                    a.write(name+'\n'+UserName+':'+message+'\n')
                     a.close()
                 textbox = driver.find_element_by_xpath(c.Tbx)
                 if 'garbage.exe' in message.lower():
@@ -63,7 +64,7 @@ while True:
                             textbox.send_keys(x)
                             textbox.send_keys(Keys.SHIFT+Keys.ENTER)
                         textbox.send_keys('\n')
-                    cmd.Commands(driver,textbox,date,message,name)
+                    cmd.Commands(driver,textbox,date,message,name,UserName)
                     if 'bye garb' in message.lower():
                         response='Goodbye\n'
                         textbox.send_keys(response)
