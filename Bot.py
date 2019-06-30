@@ -78,10 +78,11 @@ while True:
                     driver.find_element_by_class_name(c.Qt).click()
                 except:
                     pass
-                if (name in user) and ('true' in user[name].lower()):
-                    textbox = driver.find_element_by_xpath(c.Tbx)
-                    response=str(e)[0].upper()+str(e)[1:]+'\n'
-                    textbox.send_keys(response)
+                if 'Message' not in str(e):
+                    if (name in user) and ('true' in user[name].lower()):
+                        textbox = driver.find_element_by_xpath(c.Tbx)
+                        response=str(e)[0].upper()+str(e)[1:]+'\n'
+                        textbox.send_keys(response)
             t.sleep(1)
     except Exception as e:
         print(e)
