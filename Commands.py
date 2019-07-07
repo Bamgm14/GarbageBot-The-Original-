@@ -1,11 +1,11 @@
-import Blind as bd
-import Birthday as b
-import Internet as i
-import Interface as In
-import Send as s
-import BnT
-import Group as g
-import JCInterface as jc
+import Modules.Blind as bd
+import Modules.Birthday as b
+import Modules.Internet as i
+import Modules.Interface as In
+import Modules.Send as s
+import Modules.BnT
+import Modules.Group as g
+import Modules.JCInterface as jc
 from selenium.webdriver.common.keys import Keys
 import time as t
 blist=[]
@@ -13,7 +13,7 @@ JC=['!rtrans','!strans','!bankbal']
 grp={'!makeadmin':g.makeadmin,'*iam!special':g.special,'!amb':g.Addmeback,'!lmb':g.linkmeback}
 bir={'!birthday':b.FindBirthday,'!addbirthday':b.Newbirthday,'!checkbirthday':b.CheckBirthday}
 net={'!meme':i.rmemes,'!anattempt':i.ranattempt,'!pun':i.rpun,'!yt':i.youtube,'!showerthou':i.rshowert,'!physmeme':i.rphysmeme,'!chemmeme':i.rchemmeme,'!mathmeme':i.rmathmeme,'!compmeme':i.rcompmeme}
-def Commands(driver,textbox,date,message,name):
+def Commands(driver,textbox,date,message,name,UserName):
     global blist
     for x in JC:
         if x in message:

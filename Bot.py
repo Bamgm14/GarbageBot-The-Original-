@@ -4,15 +4,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time as t
 import User as u
-import Constant as c
+import Modules.Constant as c
 import Commands as cmd
+import os
+import md5
+md5.Setup()
 hlp=open('Help.txt','r').read()
 driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code')
-msgstoragemode=input('Do You Want To Store All Incoming Messages?[Y/N](Only If You Have Good Storage):')
 while True:
+    try:
+        md5.Update()
+    except:
+        os.system('python3 Bot.py')
+        break
     try:
         user=u.Users()
         register=driver.find_elements_by_class_name(c.Greendot)
@@ -36,10 +43,9 @@ while True:
                 name = driver.find_element_by_xpath(c.Nme).text
                 message = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
                 UserName=driver.find_element_by_xpath(c.Info).get_attribute('data-pre-plain-text').split("]")[1]
-                if msgstoragemode.lower()=='y':
-                    a=open('MessageHistory.txt','a')
-                    a.write(name+'\n'+UserName+':'+message+'\n')
-                    a.close()
+                a=open('MessageHistory.txt','a')
+                a.write(name+'\n'+UserName+':'+message+'\n')
+                a.close()
                 textbox = driver.find_element_by_xpath(c.Tbx)
                 if 'garbage.exe' in message.lower():
                     if name not in user:
