@@ -14,7 +14,7 @@ def youtube(message):
         ytlist.append('https://www.youtube.com' + vid['href'])
     response=ytlist[0]
     if '*yes' in message:
-        response=yes(response)
+        response=YesUtube(response)
     return response
 def rshowert(message):
     url = 'https://www.reddit.com/r/Showerthoughts/'
@@ -75,6 +75,11 @@ def Over(url,message):
     if '*yes' in message:
         response=yes(response)
     return response
+def YesUtube(url):
+    os.system("cd "+os.getcwd()+"\\PictureTemp\\"+"& youtube-dl -o"+str(len(os.listdir(os.getcwd()+"\\PictureTemp\\"))+1)+".mp4 "+url)
+    if len(image)==0:
+        return None,url
+    return os.getcwd()+'\\PictureTemp\\'+str(len(os.listdir(os.getcwd()+"\\PictureTemp\\")))+'.mp4',None
 def yes(url):
     res= http.request('GET', url)
     soup = BeautifulSoup(res.data,"html.parser")
