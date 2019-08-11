@@ -11,3 +11,4 @@ Commands:
 !anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
 !bnt <Name1,Name2,etc> <Level>
 !cricket <required[?status,?live]> (<Team1>,<Team2>)
+!chatmode <required[True/False]>

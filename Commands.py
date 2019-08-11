@@ -3,11 +3,14 @@ import Modules.Birthday as b
 import Modules.Internet as i
 import Modules.Interface as In
 import Modules.Send as s
-import Modules.BnT
+import Modules.BnT as BnT
 import Modules.Group as g
+import Modules.ChatMode as cm
 import Modules.JCInterface as jc
 from selenium.webdriver.common.keys import Keys
 import time as t
+from chatterbot import ChatBot
+chatbot=ChatBot('Garb')
 blist=[]
 JC=['!rtrans','!strans','!bankbal']
 grp={'!makeadmin':g.makeadmin,'*iam!special':g.special,'!amb':g.Addmeback,'!lmb':g.linkmeback}
@@ -111,3 +114,19 @@ def Commands(driver,textbox,date,message,name,UserName):
             textbox.send_keys(x)
             textbox.send_keys(Keys.SHIFT+Keys.ENTER)
         textbox.send_keys('\n')
+    if name in cm.Chatmde:
+        response=cm.Chatmode(chatbot,UserName,message)
+        if response:
+            for x in response.split('\n'):
+                textbox.send_keys(x)
+                textbox.send_keys(Keys.SHIFT+Keys.ENTER)
+            textbox.send_keys('\n')
+    if '!chat' in message:
+        if 'true' in message:
+            cm.Chatmde.append(name)
+        elif 'false' in message:
+            try:
+                while name in cm.Chatmde:
+                    cm.Chatmde.remove(name)
+            except:
+                pass
