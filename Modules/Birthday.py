@@ -6,7 +6,6 @@ import random as r
 import os
 def Newbirthday(message,calender,Random=None):
     binfo=message.split(' ')[1]
-    binfo=binfo.split('\n')[0]
     blis=binfo.split(':')
     fix=blis[0]+':'+blis[1]
     bdate=blis[1].split('-')
@@ -28,7 +27,6 @@ def Refresh():
     return calender
 def FindBirthday(message,calender,date=d.datetime.now().isoformat()):
     bname=message.split(' ')[1]
-    bname=bname.split('\n')[0]
     if bname in calender.keys():
         response=calender[bname]
         if date.split('T')[0][5:]==response[5:]:
