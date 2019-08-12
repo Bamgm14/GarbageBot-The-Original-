@@ -9,8 +9,17 @@ import Modules.ChatMode as cm
 import Modules.JCInterface as jc
 from selenium.webdriver.common.keys import Keys
 import time as t
+import chatterbot
+from chatterbot.comparisons import *
+from chatterbot.response_selection import *
 from chatterbot import ChatBot
-chatbot=ChatBot('Garb')
+chatbot=ChatBot('Garb',
+    preprocessors=['chatterbot.preprocessors.clean_whitespace','chatterbot.preprocessors.convert_to_ascii'],
+    logic_adapters=[{"import_path": "chatterbot.logic.BestMatch","statement_comparison_function": synset_distance,"response_selection_method": get_first_response,'default_response': 'I am sorry, but I do not understand.','maximum_similarity_threshold': 0.95},
+                    {'import_path': 'chatterbot.logic.SpecificResponseAdapter','input_text': 'bye garb','output_text': ''},
+#                    {'import_path': 'chatterbot.logic.TimeLogicAdapter'},
+                    {'import_path': 'chatterbot.logic.MathematicalEvaluation'}]
+                )
 blist=[]
 JC=['!rtrans','!strans','!bankbal']
 grp={'!makeadmin':g.makeadmin,'*iam!special':g.special,'!amb':g.Addmeback,'!lmb':g.linkmeback}
