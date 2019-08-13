@@ -86,4 +86,3 @@ while True:
             t.sleep(1)
     except Exception as e:
         print(e)
-os.system('cls')

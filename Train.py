@@ -12,14 +12,15 @@ def Train(file):
         except Exception as e:
             print(str(e))
             pass
-'''trainer = ChatterBotCorpusTrainer(c.chatbot)
-trainer.train("chatterbot.corpus.english.ai",
-              "chatterbot.corpus.english.conversations",
-              "chatterbot.corpus.english.greetings",
-              "chatterbot.corpus.english.food",
-              "chatterbot.corpus.english.emotion")'''
 def Test():
     word=''
     while word!='bye':
         word=input('>')
         print(c.chatbot.get_response(word))
+
+def DefTrain():
+    trainer = ChatterBotCorpusTrainer(c.chatbot)
+    trainer.train("chatterbot.corpus.english.ai",
+              "chatterbot.corpus.english.conversations",
+              "chatterbot.corpus.english.greetings",
+              "chatterbot.corpus.english.emotion")
