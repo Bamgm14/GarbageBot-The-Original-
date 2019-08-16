@@ -68,12 +68,11 @@ while True:
                         response='Goodbye\n'
                         textbox.send_keys(response)
                         u.LeaveUser(name,date)
-                        pass
+                        continue
                     if '!killswitch' in message.lower():
                         break
                     cmd.Commands(driver,textbox,date,message,name,UserName)
             except Exception as e:
-                print (e)
                 try:
                     driver.find_element_by_class_name(c.Qt).click()
                 except:
@@ -83,6 +82,7 @@ while True:
                         textbox = driver.find_element_by_xpath(c.Tbx)
                         response=str(e)[0].upper()+str(e)[1:]+'\n'
                         textbox.send_keys(response)
+                        print (e)
             t.sleep(1)
     except Exception as e:
         print(e)
