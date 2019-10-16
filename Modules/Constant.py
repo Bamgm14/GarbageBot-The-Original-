@@ -1,6 +1,6 @@
 Greendot="P6z4j"
 Nme="/html/body/div[1]/div/div/div[4]/div/header/div[2]/div[1]/div/span"
-Msg="-N6Gq"
+Msg="FTBzM"
 Tbx="/html/body/div/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]"
 Qt='qfKkX'
 Down='/html/body/div[1]/div/div/div[4]/div/div[3]/div/span[2]/div/span[2]'
@@ -26,4 +26,4 @@ attach_xpath = '//*[@id="main"]/header/div[3]/div/div[2]/div'
 send_file_xpath = '/html/body/div[1]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/span[2]/div/div/span'
 attach_type_xpath = '/html/body/div[1]/div/div/div[4]/div/header/div[3]/div/div[2]/span/div/div/ul/li[1]/button/input'
 caption_xpath = "/html/body/div[1]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/span/div/div[2]/div/div[3]/div[1]/div[2]"
-Info="//*[@class='_1ays2']/div[last()]/div/div/div[contains(@class,'copyable-text')]"
+
