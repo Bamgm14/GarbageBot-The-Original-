@@ -36,7 +36,11 @@ while True:
                 name = driver.find_element_by_xpath(c.Nme).text
                 message = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
                 time = message.split('\n')[len(message.split('\n'))-1]
-                UserName=driver.find_element_by_xpath(c.Info).get_attribute('data-pre-plain-text').split("]")[1].replace(':','').replace(' ','')
+                if len(message.split('\n'))>=3:
+                    UserName=message.split('\n')[len(message.split('\n'))-3]
+                else:
+                    UserName=name
+                #UserName=driver.find_elements_by_class_name(c.Info)[-1].get_attribute('data-pre-plain-text').split("]")[1].replace(':','').replace(' ','')
                 message=message.split('\n')[len(message.split('\n'))-2]
                 a=open('MessageHistory.txt','a')
                 a.write('{"'+name+'":("'+UserName+'","'+message+'","'+time+'")}\n====\n')
@@ -77,6 +81,7 @@ while True:
                     driver.find_element_by_class_name(c.Qt).click()
                 except:
                     pass
+                print(e)
                 if 'Message' not in str(e):
                     if (name in user) and ('true' in user[name].lower()):
                         textbox = driver.find_element_by_xpath(c.Tbx)

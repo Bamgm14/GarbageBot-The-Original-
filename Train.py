@@ -1,6 +1,7 @@
 import Commands as c
 import ast
-from chatterbot.trainers import ListTrainer,ChatterBotCorpusTrainer
+import nltk
+from chatterbot.trainers import ListTrainer,ChatterBotCorpusTrainer,UbuntuCorpusTrainer
 def Train(file):
     print(file)
     for x in open(file,'r').read().split('\n'):
@@ -24,3 +25,11 @@ def DefTrain():
               "chatterbot.corpus.english.conversations",
               "chatterbot.corpus.english.greetings",
               "chatterbot.corpus.english.emotion")
+    UbuntuCorpusTrainer(c.chatbot)
+def Chatter():
+    b='Hi'
+    while True:
+        a=nltk.chat.iesha.iesha_chatbot.respond(b)
+        print(a)
+        b=c.chatbot.get_response(a)
+        print(b)
