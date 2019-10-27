@@ -7,6 +7,7 @@ import User as u
 import Modules.Constant as c
 import Commands as cmd
 import os
+import pickle
 hlp=open('Help.txt','r').read()
 driver = webdriver.Firefox()
 driver.maximize_window()
@@ -15,6 +16,7 @@ page=driver.page_source
 print('Please Scan the QR Code')
 while page==driver.page_source:
     pass
+pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
 while True:
     try:
         user=u.Users()
@@ -91,7 +93,6 @@ while True:
                         response=str(e)[0].upper()+str(e)[1:]+'\n'
                         textbox.send_keys(response)
                         print (e)
-                driver.get('http://web.whatsapp.com')
             t.sleep(1)
     except Exception as e:
         driver.get('http://web.whatsapp.com')
