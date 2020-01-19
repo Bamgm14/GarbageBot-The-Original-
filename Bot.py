@@ -7,14 +7,14 @@ import User as u
 import Modules.Constant as c
 import Commands as cmd
 import os
+import pickle
 hlp=open('Help.txt','r').read()
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
-page=driver.page_source
 print('Please Scan the QR Code')
-while page==driver.page_source:
-    pass
+name=''
+msg=[None,None,None]
 while True:
     try:
         user=u.Users()
@@ -35,16 +35,18 @@ while True:
                 action.perform()
             except Exception as e:
                 pass
-            try:
+        try:
+            if msg!=driver.find_elements_by_class_name(c.Msg)[-1].text.lower():
                 name = driver.find_element_by_xpath(c.Nme).text
-                message = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
-                time = message.split('\n')[len(message.split('\n'))-1]
-                if len(message.split('\n'))>=3:
-                    UserName=message.split('\n')[len(message.split('\n'))-3]
+                msg = driver.find_elements_by_class_name(c.Msg)[-1].text.lower()
+                time = msg.split('\n')[len(msg.split('\n'))-1]
+                print(msg)
+                if len(msg.split('\n'))>=3:
+                    UserName=msg.split('\n')[len(msg.split('\n'))-3]
                 else:
                     UserName=name
                 #UserName=driver.find_elements_by_class_name(c.Info)[-1].get_attribute('data-pre-plain-text').split("]")[1].replace(':','').replace(' ','')
-                message=message.split('\n')[len(message.split('\n'))-2]
+                message=msg.split('\n')[len(msg.split('\n'))-2]
                 a=open('MessageHistory.txt','a')
                 a.write('{"'+name+'":("'+UserName+'","'+message+'","'+time+'")}\n====\n')
                 a.close()
@@ -78,20 +80,21 @@ while True:
                         continue
                     if '!killswitch' in message.lower():
                         break
-                    cmd.Commands(driver,textbox,date,message,name,UserName)
-            except Exception as e:
-                try:
-                    driver.find_element_by_class_name(c.Qt).click()
-                except:
-                    pass
-                print(e)
-                if 'Message' not in str(e):
-                    if (name in user) and ('true' in user[name].lower()):
-                        textbox = driver.find_element_by_xpath(c.Tbx)
-                        response=str(e)[0].upper()+str(e)[1:]+'\n'
-                        textbox.send_keys(response)
-                        print (e)
-            t.sleep(1)
+                    if 'commands:' not in message:
+                        cmd.Commands(driver,textbox,date,message,name,UserName)
+        except Exception as e:
+            try:
+                driver.find_element_by_class_name(c.Qt).click()
+            except:
+                pass
+            print(e)
+            if 'Message' not in str(e):
+                if (name in user) and ('true' in user[name].lower()):
+                    textbox = driver.find_element_by_xpath(c.Tbx)
+                    response=str(e)[0].upper()+str(e)[1:]+'\n'
+                    textbox.send_keys(response)
+                    print (e)
+        t.sleep(1)
     except Exception as e:
         driver.get('http://web.whatsapp.com')
         print(e)

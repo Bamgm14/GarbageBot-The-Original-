@@ -1,21 +1,25 @@
 from bs4 import BeautifulSoup
-import urllib3
+import requests as rq
 import random as r
+import urllib3
 import os
 urllib3.disable_warnings()
 http = urllib3.PoolManager()
-def youtube(message):
+def youtube(message,cyc):
     url = 'https://www.youtube.com/results?search_query='
     url+=message[4:].replace(' ','+')
-    res= http.request('GET', url)
-    soup = BeautifulSoup(res.data,"html.parser")
+    res= rq.get(url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'})
+    soup = BeautifulSoup(res.text,"html.parser")
     ytlist=[]
     for vid in soup.findAll(attrs={'class':'yt-uix-tile-link'}):
         ytlist.append('https://www.youtube.com' + vid['href'])
-    response=ytlist[0]
-    if '*yes' in message:
-        response=YesUtube(response)
-    return response
+    if len(ytlist)==0:
+        return youtube(message)
+    else:
+        response=ytlist[0]
+        if '*yes' in message:
+            response=YesUtube(response)
+        return response
 def rshowert(message):
     url = 'https://www.reddit.com/r/Showerthoughts/'
     return Over(url,message)
@@ -53,41 +57,56 @@ def rcompmeme(message):
 def rchemmeme(message):
     url = 'https://www.reddit.com/r/chemistrymemes/'
     return Over(url,message)
-def Over(url,message):
+def Over(url,message,cyc=0):
     ur=url
-    if '?new' in message:
-        url+='new'
-    elif '?hot' in message:
-        url+='hot'
-    elif '?rising' in message:
-        url+='rising'
-    elif '?contro' in message:
-        url+='controversial'
-    elif '?top' in message:
-        url+='top'
-    res= http.request('GET', url)
-    soup = BeautifulSoup(res.data,"html.parser")
+    if cyc==0:
+        if '?new' in message:
+            url+='new/'
+        elif '?hot' in message:
+            url+='hot/'
+        elif '?rising' in message:
+            url+='rising/'
+        elif '?contro' in message:
+            url+='controversial/'
+        elif '?top' in message:
+            url+='top/'
+    res= rq.get(url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'})
+    print(cyc,url)
+    soup = BeautifulSoup(res.text,"html.parser")
     anlist=[]
     for x in soup.find_all('a'):
         if ur+'comments/' in x.get('href'):
             anlist.append(x.get('href'))
-    response=str(r.choice(anlist))
-    if '*yes' in message:
-        response=yes(response)
-    return response
-def YesUtube(url):
+    if len(anlist)==0:
+        if cyc<=40:
+            return Over(url,message,cyc+1)
+        else:
+            return "An Error Has Occured, Try Again"
+    else:
+        response=str(r.choice(anlist))
+        if '*yes' in message:
+            response=yes(response)
+        return response
+def YesUtube(url,cyc=0):
     os.system("cd "+os.getcwd()+"\\PictureTemp\\"+"& youtube-dl -o"+str(len(os.listdir(os.getcwd()+"\\PictureTemp\\"))+1)+".mp4 "+url)
     if len(image)==0:
-        return None,url
+        if cyc==15:
+            return None,url
+        else:
+            return yes(url,cyc+1)
     return os.getcwd()+'\\PictureTemp\\'+str(len(os.listdir(os.getcwd()+"\\PictureTemp\\")))+'.mp4',None
-def yes(url):
-    res= http.request('GET', url)
-    soup = BeautifulSoup(res.data,"html.parser")
+def yes(url,cyc=0):
+    res= rq.get(url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'})
+    print(cyc)
+    soup = BeautifulSoup(res.text,"html.parser")
     image=[]
     for x in soup.find_all('a'):
         if "https://i.redd.it/" in x.get('href') or "https://v.redd.it/" in x.get('href'):
             image.append(x.get('href'))
     if len(image)==0:
-        return None,url
+        if cyc==15:
+            return None,url
+        else:
+            return yes(url,cyc+1)
     os.system(r'wget -P "'+os.getcwd()+'\PictureTemp" '+str(image[0]))
     return os.getcwd()+'\\PictureTemp\\'+image[0][18:],soup.title.get_text().split(':')[0]
