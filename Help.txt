@@ -1,14 +1,16 @@
 Commands:
-!yt <Item To Be Searched>\n!Birthday <Name>
+!yt <Item To Be Searched>
+!Birthday <Name>
 !AddBirthday <Name>:<Year>(yyyy)-<Month>(mm)-<Day>(dd)(SideNote:for names with space, use "_")
 !checkbirthday ?<optinal{(mm)-(dd)}[default is current date]>
-!memes <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!meme <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
 !pun <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
 !showerthou <optional[?top,?new,?contro,?rising,?hot]>
-!physmeme <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
-!chemmeme <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
-!mathmeme <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
-!anattempt <optional[?top,?new,?contro,?rising,?hot,?written]> <*Yes/*No(Defualt is No){Image Downloader}>
-!bnt <Name1,Name2,etc> <Level>
-!cricket <required[?status,?live]> (<Team1>,<Team2>)
-!chatmode <required[True/False]>
+!physmeme <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!chemmeme <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!mathmeme <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!anattempt <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!compmeme <optional[?top,?new,?contro,?rising,?hot]> <*Yes/*No(Defualt is No){Image Downloader}>
+!bnt <Name1,Name2,etc> <Level>([Unstable])
+!cricket <required[?status,?live]> (<Team1>,<Team2>)([Unstable])
+!chat <required[True/False]>([Unstable])
