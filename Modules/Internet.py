@@ -71,7 +71,6 @@ def Over(url,message,cyc=0):
         elif '?top' in message:
             url+='top/'
     res= rq.get(url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'})
-    print(cyc,url)
     soup = BeautifulSoup(res.text,"html.parser")
     anlist=[]
     for x in soup.find_all('a'):
@@ -97,7 +96,6 @@ def YesUtube(url,cyc=0):
     return os.getcwd()+'\\PictureTemp\\'+str(len(os.listdir(os.getcwd()+"\\PictureTemp\\")))+'.mp4',None
 def yes(url,cyc=0):
     res= rq.get(url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'})
-    print(cyc)
     soup = BeautifulSoup(res.text,"html.parser")
     image=[]
     for x in soup.find_all('a'):
