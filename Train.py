@@ -1,10 +1,18 @@
 import Commands as c
 import ast
 import nltk
+import numpy as np
 from chatterbot.trainers import ListTrainer,ChatterBotCorpusTrainer,UbuntuCorpusTrainer
-def Train(file):
+def Train(file,var='y'):
+    var=var.lower()
     print(file)
-    for x in open(file,'r').read().split('\n'):
+    lst=open(file,'r').read().split('\n')
+    if len(lst)>=100 and var=='y':
+        var=[]
+        for x in list(np.random.randint(low=0, high=len(lst), size=1000)):
+            var.append(lst[x])
+        lst=var
+    for x in lst:
         try:
             conversation=ast.literal_eval(x)
             print(conversation)
@@ -33,3 +41,4 @@ def Chatter():
         print(a)
         b=c.chatbot.get_response(a)
         print(b)
+
