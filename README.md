@@ -2,3 +2,5 @@
 A Bot I built from my framework... 
 It is mostly just me being weird.... Don't Expect anything interseting
 IMPORTANT:Garb now has a chat feature... Neat for me
+<br>
+<b><h1>[Depracated]</h1></b>
