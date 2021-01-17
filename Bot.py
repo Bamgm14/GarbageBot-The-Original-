@@ -9,7 +9,7 @@ import Commands as cmd
 import os
 import pickle
 hlp=open('Help.txt','r').read()
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get('http://web.whatsapp.com')
 print('Please Scan the QR Code')
